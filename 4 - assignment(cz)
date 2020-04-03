@@ -1,0 +1,21 @@
+Úkolem je vytvořit program, který bude plánovat rozmístění billboardů na dálnici.
+
+Přestože bilboardy měly být od dálnic v ČR odstraněny již loni, celý proces se vinou specifických podmínek nedaří dokončit. Inovativním řešením vzniklé situace by mohlo být omezené povolení billboardů spojené s vhodnějším plánováním rozmístění billboardů podle dálnic. Realizace programu pro takové plánování bude váš úkol.
+
+Předpokládáme dálnici o celkové délce len. Podle této dálnice jsou vybraná místa, kde by bylo možné umístit billboardy (jinam je umístit nelze). Tato místa jsou určena vzdáleností od počátku dálnice, vzdálenost je celé číslo z intervalu <1;len-1>. Celkem je takto vybráno nejvýše 1000000 míst.
+
+Do některých takových míst je potřeba umístit billboardy. Billboardů je potřeba umístit co nejméně, ale zároveň je potřeba zajistit, aby mezi dvojicí po sobě jdoucích billboardů byla vzdálenost nejvýše dist. Zároveň první billboard musí být umístěn nejdále ve vzdálenosti dist od počátku dálnice a poslední billboard musí být umístěn nejdále ve vzdálenosti dist od konce dálnice. Program na základě těchto informací určí, kolik je celkem potřeba umístit billboardů.
+
+Vstupem programu je délka dálnice len (celé číslo) následovaná seznamem míst hodných pro umístění billboardů. Pozice pro umístění billboardů jsou celá čísla, jsou zapsaná ve složených závorkách a oddělená čárkami. Za seznamem pozic následují dotazy. Každý dotaz je zadán jako celé číslo dist, toto číslo udává největší akceptovatelnou vzdálenost mezi dvojicí po sobě jdoucích billboardů. Zadávání dotazů končí po dosažení konce vstupu (EOF).
+
+Výstupem programu je vypočtený minimální potřebný počet billboardů pro každý zadaný dotaz, případně program zobrazí informaci, že pro zadanou vzdálenost billboardy rozmístit nelze. Přesný formát výpisu je vidět v ukázkovém běhu programu.
+
+Pokud je vstup neplatný, program to musí detekovat a zobrazit chybové hlášení. Chybové hlášení zobrazujte na standardní výstup (ne na chybový výstup). Za chybu považujte:
+
+vzdálenosti nejsou platná celá čísla,
+délka dálnice je záporná nebo nulová,
+pozice pro umístěni billboardů nejsou z intervalu <1;len-1>,
+nejsou zadané žádné pozice pro umístění billboardů,
+je zadáno více než 1000000 pozic pro umístění billboardů,
+požadovaná vzdálenost dist je záporná nebo nulová,
+chybí nebo přebývá nějaký oddělovač (složená závorka, dvojtečka, čárka).
