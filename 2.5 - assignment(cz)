@@ -1,21 +1,36 @@
-Úkolem je vytvořit program, který bude plánovat rozmístění billboardů na dálnici.
+Úkolem je vytvořit program, který bude zpracovávat čísla zapsaná v různých číselných soustavách v zadaném intervalu hodnot. Úloha je rozšířením jednodušší varianty, v této variantě budou zpracovávána čísla v různých číselných soustavách.
 
-Přestože bilboardy měly být od dálnic v ČR odstraněny již loni, celý proces se vinou specifických podmínek nedaří dokončit. Inovativním řešením vzniklé situace by mohlo být omezené povolení billboardů spojené s vhodnějším plánováním rozmístění billboardů podle dálnic. Realizace programu pro takové plánování bude váš úkol.
+Jedna instance řešeného problému je zadaná základem číselné soustavy R, dolní mezí intervalu LO a horní mezí intervalu HI. Představme si všechna celá čísla z intervalu <LO;HI> postupně zapsaná vedle sebe v soustavě o základu R. Takto zapsaná čísla vytvoří sekvenci číslic. Program bude mít za úkol spočítat následující:
 
-Předpokládáme dálnici o celkové délce len. Podle této dálnice jsou vybraná místa, kde by bylo možné umístit billboardy (jinam je umístit nelze). Tato místa jsou určena vzdáleností od počátku dálnice, vzdálenost je celé číslo z intervalu <1;len-1>. Celkem je takto vybráno nejvýše 1000000 míst.
+celkovou délku této sekvence (počet cifer),
+určit počet nul v této sekvenci,
+určit nejdelší kontinuální posloupnost nul v této sekvenci.
+Například pro vstup r4:<10;20> by se jednalo o sekvenci čísel 10 až 20 zapsaných ve čtyřkové soustavě, tedy:
 
-Do některých takových míst je potřeba umístit billboardy. Billboardů je potřeba umístit co nejméně, ale zároveň je potřeba zajistit, aby mezi dvojicí po sobě jdoucích billboardů byla vzdálenost nejvýše dist. Zároveň první billboard musí být umístěn nejdále ve vzdálenosti dist od počátku dálnice a poslední billboard musí být umístěn nejdále ve vzdálenosti dist od konce dálnice. Program na základě těchto informací určí, kolik je celkem potřeba umístit billboardů.
+22 23 30 31 32 33 100 101 102 103 110 
+Taková sekvence má celkem 27 cifer, z toho 7 nul a nejdelší kontinuální sekvence nul má délku 2. Podobně pro pro vstup r13:<10;20> by se jednalo o sekvenci čísel 10 až 20 zapsaných ve třináctkové soustavě, tedy:
 
-Vstupem programu je délka dálnice len (celé číslo) následovaná seznamem míst hodných pro umístění billboardů. Pozice pro umístění billboardů jsou celá čísla, jsou zapsaná ve složených závorkách a oddělená čárkami. Za seznamem pozic následují dotazy. Každý dotaz je zadán jako celé číslo dist, toto číslo udává největší akceptovatelnou vzdálenost mezi dvojicí po sobě jdoucích billboardů. Zadávání dotazů končí po dosažení konce vstupu (EOF).
+A B C 10 11 12 13 14 15 16 17 
+Taková sekvence má celkem 19 cifer, z toho 1 nulu a nejdelší kontinuální sekvence nul má délku 1.
 
-Výstupem programu je vypočtený minimální potřebný počet billboardů pro každý zadaný dotaz, případně program zobrazí informaci, že pro zadanou vzdálenost billboardy rozmístit nelze. Přesný formát výpisu je vidět v ukázkovém běhu programu.
+Vstupem programu je zadání problémů k vyřešení. Problémů k vyřešení může být zadáno obecně mnoho. Pro každý problém k vyřešení je zadán základ číselné soustavy, interval hodnot a požadovaná operace. Zadání má jednu ze dvou forem:
+
+rR: <LO;HI> OP
+<LO;HI> OP
+kde R je celé desítkové číslo udávající základ číselné soustavy. Pokud je vynecháno (druhá zkrácená forma), bude základ soustavy R=10. Hodnoty LO a HI jsou celá desítková čísla vymezující analyzovaný interval hodnot a OP je požadovaná operace:
+
+l pro výpočet celkové délky sekvence (počtu cifer),
+z pro výpočet počtu nul v sekvenci,
+s pro výpočet nejdelší kontinuální sekvence nul.
+Na vstupu je zadáno mnoho problémů k vyřešení, program načítá vstup a pro každý úspěšně zpracovanou instanci problému zobrazí požadovaný výsledek. Čtení a zpracovávání zadaných problémů skončí v okamžiku dosažení konce vstupu (EOF).
+
+Výstupem programu je vypočtená informace podle problému na vstupu. Přesný formát výpisu je vidět v ukázkovém běhu programu.
 
 Pokud je vstup neplatný, program to musí detekovat a zobrazit chybové hlášení. Chybové hlášení zobrazujte na standardní výstup (ne na chybový výstup). Za chybu považujte:
 
-vzdálenosti nejsou platná celá čísla,
-délka dálnice je záporná nebo nulová,
-pozice pro umístěni billboardů nejsou z intervalu <1;len-1>,
-nejsou zadané žádné pozice pro umístění billboardů,
-je zadáno více než 1000000 pozic pro umístění billboardů,
-požadovaná vzdálenost dist je záporná nebo nulová,
-chybí nebo přebývá nějaký oddělovač (složená závorka, dvojtečka, čárka).
+nečíselné zadání mezí intervalu nebo základu soustavy (neplatné číslo),
+mez intervalu je záporné číslo,
+dolní mez intervalu je větší než horní mez,
+základ soustavy není z intervalu 2 až 36,
+požadovaná operace není žádná z l, z, s,
+chybí nebo přebývá nějaký oddělovač (lomená závorka, středník).
